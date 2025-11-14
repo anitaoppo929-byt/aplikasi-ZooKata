@@ -18,8 +18,8 @@ body {
 
 /* --- Gambar Hewan --- */
 .animal {
-    width: 300px; /* ukuran gambar */
-    height: 300px;
+    width: 500px;  /* diperbesar */
+    height: 500px; /* diperbesar */
     object-fit: cover;
     filter: blur(8px); /* semua gambar blur */
     transition: filter 0.3s;
@@ -29,6 +29,7 @@ body {
 .animal.revealed {
     filter: blur(0px);
 }
+
 
 /* Stats & Input */
 .stats {
