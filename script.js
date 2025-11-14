@@ -22,109 +22,84 @@ const animals = [
   {name:"rusa", clue:"Hewan bertanduk, lari cepat, hidup di hutan.", img:"R.jpg"}
 ];
 
-let index = 0, coins = 10, diamonds = 3, lives = 3;
+let level = 0;
+let lives = 3;
+let coins = 10;
+let diamonds = 3;
 
-// Background galeri
-window.addEventListener("load", () => {
-    const bg = document.getElementById("backgroundAnimals");
-    animals.forEach(a => {
-        const img = document.createElement("img");
-        img.src = a.img;
-        bg.appendChild(img);
-    });
-});
-
-// MENU
-function toggleGuide(){ 
-  const g = document.getElementById("guideBox"); 
-  g.style.display = g.style.display === "none" ? "block" : "none";
+function startGame() {
+    document.getElementById("menuScreen").style.display = "none";
+    document.getElementById("gameScreen").style.display = "block";
+    loadLevel();
 }
 
-function startGame(){ 
-  document.getElementById("menuScreen").style.display = "none";
-  document.getElementById("gameScreen").style.display = "block";
-  loadLevel();
+function loadLevel() {
+    const animal = animals[level];
+    const img = document.getElementById("animalImg");
+    img.src = animal.image;
+    img.classList.remove("revealed"); // pastikan blur
+    document.getElementById("levelNumber").innerText = level + 1;
+    document.getElementById("resultText").innerText = "";
+    document.getElementById("clueBox").innerText = "";
 }
 
-// GAME
-function loadLevel(){
-  const a = animals[index];
-  document.getElementById("animalImg").src = a.img;
-  document.getElementById("animalImg").classList.remove("revealed");
-  document.getElementById("answerInput").value = "";
-  document.getElementById("resultText").innerText = "";
-  document.getElementById("clueBox").style.display = "none";
-  document.getElementById("levelNumber").innerText = index + 1;
+function checkAnswer() {
+    const answer = document.getElementById("answerInput").value.toLowerCase();
+    const animal = animals[level];
+    if (answer === animal.name.toLowerCase()) {
+        document.getElementById("resultText").innerText = "✅ Benar!";
+        level++;
+        if(level < animals.length){
+            setTimeout(loadLevel, 1000);
+        } else {
+            endGame("🎉 Kamu menang!");
+        }
+    } else {
+        lives--;
+        document.getElementById("lives").innerText = lives;
+        document.getElementById("resultText").innerText = "❌ Salah!";
+        if(lives <= 0){
+            endGame("💀 Game Over");
+        }
+    }
 }
 
-function checkAnswer(){
-  const input = document.getElementById("answerInput").value.toLowerCase();
-  const result = document.getElementById("resultText");
-  const img = document.getElementById("animalImg");
+function buyClueCoin() {
+    if(coins >= 2){
+        coins -= 2;
+        document.getElementById("coins").innerText = coins;
+        document.getElementById("clueBox").innerText = animals[level].clue;
+    } else alert("Koin tidak cukup!");
+}
 
-  if(input === animals[index].name){
-    result.innerHTML = "🎉 Benar!";
-    result.className = "correct";
-    img.classList.add("revealed");
+function buyClueDiamond() {
+    if(diamonds >= 1){
+        diamonds -= 1;
+        document.getElementById("diamonds").innerText = diamonds;
+        document.getElementById("animalImg").classList.add("revealed"); // hilangkan blur
+    } else alert("Diamond tidak cukup!");
+}
 
-    coins += 5; 
-    document.getElementById("coins").innerText = coins;
+function endGame(message) {
+    document.getElementById("gameScreen").style.display = "none";
+    const endScreen = document.getElementById("endScreen");
+    endScreen.style.display = "block";
+    endScreen.querySelector("h1").innerText = message;
+}
 
-    setTimeout(()=>{
-      index++; 
-      if(index >= animals.length) gameOver(true);
-      else loadLevel();
-    }, 1000);
-
-  } else {
-    lives--; 
+function restart() {
+    level = 0;
+    lives = 3;
+    coins = 10;
+    diamonds = 3;
     document.getElementById("lives").innerText = lives;
-
-    result.innerHTML = "❌ Salah! Nyawa berkurang"; 
-    result.className = "wrong";
-
-    if(lives <= 0) setTimeout(gameOver, 800, false);
-  }
+    document.getElementById("coins").innerText = coins;
+    document.getElementById("diamonds").innerText = diamonds;
+    document.getElementById("endScreen").style.display = "none";
+    document.getElementById("menuScreen").style.display = "block";
 }
 
-function buyClueCoin(){
-  if(coins < 2){ alert("Koin tidak cukup!"); return; }
-  coins -= 2; 
-  document.getElementById("coins").innerText = coins;
-  showClue();
-}
-
-function buyClueDiamond(){
-  if(diamonds < 1){ alert("Diamond tidak cukup!"); return; }
-  diamonds -= 1; 
-  document.getElementById("diamonds").innerText = diamonds;
-  showClue(true);
-}
-
-function showClue(reveal=false){
-  const clueBox = document.getElementById("clueBox");
-  clueBox.innerHTML = "💡 " + animals[index].clue;
-  clueBox.style.display = "block";
-
-  if(reveal) document.getElementById("animalImg").classList.add("revealed");
-}
-
-// GAME OVER
-function gameOver(won=false){
-  document.getElementById("gameScreen").style.display = "none";
-  const end = document.getElementById("endScreen");
-
-  end.querySelector("h1").innerText = won ? "🎉 Kamu Menang! 🎉" : "Game Over!";
-  end.style.display = "block";
-}
-
-function restart(){
-  index = 0; coins = 10; diamonds = 3; lives = 3;
-
-  document.getElementById("coins").innerText = coins;
-  document.getElementById("diamonds").innerText = diamonds;
-  document.getElementById("lives").innerText = lives;
-
-  document.getElementById("endScreen").style.display = "none";
-  document.getElementById("menuScreen").style.display = "block";
+function toggleGuide() {
+    const guide = document.getElementById("guideBox");
+    guide.style.display = guide.style.display === "none" ? "block" : "none";
 }
