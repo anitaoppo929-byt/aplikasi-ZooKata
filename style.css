@@ -1,49 +1,72 @@
+/* Layout umum */
 body {
-    margin:0; 
-    font-family:sans-serif; 
-    background:#a0e1e0; 
-    text-align:center; 
+    margin: 0;
+    font-family: Arial, sans-serif;
+    text-align: center;
 }
-.screen{ display:none; padding:20px; }
-.menu-box, .game-box, .end-box{ 
-    display:inline-block; 
-    background:#fff3b0; 
-    padding:30px; 
-    border-radius:20px; 
-    box-shadow:0 8px 20px rgba(0,0,0,0.3); 
-    position:relative; 
+
+/* Background galeri tanpa animasi */
+#backgroundAnimals {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-auto-rows: 140px;
+    gap: 6px;
+    padding: 10px;
+
+    opacity: 0.25;
+    background: #ccc;
 }
-button{
-    padding:12px 20px; 
-    margin:5px; 
-    font-size:18px; 
-    border:none; 
-    border-radius:15px; 
-    cursor:pointer; 
-    transition:0.3s; 
+
+#backgroundAnimals img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    filter: grayscale(40%);
 }
-button:hover{ transform:scale(1.1); }
-.animal-img{ 
-    width:250px; 
-    height:250px; 
-    object-fit:cover; 
-    border-radius:15px; 
-    filter:blur(15px); 
-    transition:filter 0.5s ease, transform 0.5s ease; 
-    margin:10px;
+
+/* Gambar hewan */
+.animal {
+    width: 250px;
+    height: 250px;
+    object-fit: contain;
+    border-radius: 12px;
+    background: white;
+    padding: 10px;
 }
-.animal-img.revealed{ 
-    filter:blur(0); 
-    transform:scale(1.05);
+
+.animal.revealed {
+    filter: brightness(1.1);
 }
-#clueBox{ 
-    display:none; 
-    margin-top:10px; 
-    background:#ffffffcc; 
-    padding:10px; 
-    border-radius:12px; 
+
+/* Info & tombol */
+.stats {
+    font-size: 18px;
+    margin: 10px;
 }
-.stats{ margin-top:10px; font-weight:bold; }
-#resultText.correct{ color:green; font-size:22px; } 
-#resultText.wrong{ color:red; }
-#guideBox{ display:none; text-align:left; margin-top:10px; }
+
+button {
+    margin: 6px;
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.clue {
+    background: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    width: 70%;
+    margin: 10px auto;
+    display: none;
+}
+
+.correct { color: green; font-size: 22px; }
+.wrong { color: red; font-size: 22px; }
