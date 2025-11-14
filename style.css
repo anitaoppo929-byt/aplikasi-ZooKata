@@ -23,18 +23,20 @@ body {
 
 /* --- Gambar Hewan --- */
 .animal {
-    width: 90vw;       /* 90% lebar viewport */
-    max-width: 800px;  /* jangan lebih dari 800px */
-    height: auto;      /* tinggi mengikuti rasio gambar */
-    filter: blur(8px); /* blur semua gambar */
+    width: 100vw;       
+    height: 100vh;      
+    object-fit: contain; 
+    filter: blur(4px);   
     transition: filter 0.3s;
-    border-radius: 10px; /* opsional, biar lebih rapi */
+    display: block;
+    margin: 0 auto;
 }
 
-/* Jika reveal (diamond) */
+/* Jika reveal (pakai diamond) */
 .animal.revealed {
     filter: blur(0px);
 }
+
 
 
 /* Stats & Input */
