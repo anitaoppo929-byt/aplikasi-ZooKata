@@ -1,9 +1,26 @@
 // DATA HEWAN
+// DATA HEWAN
 const animals = [
-  {name:"kucing", clue:"Hewan lucu berbulu lembut.", img:"images/kucing.jpg"},
-  {name:"anjing", clue:"Hewan setia suka menggonggong.", img:"images/anjing.jpg"},
-  {name:"gajah", clue:"Mamalia terbesar dengan belalai.", img:"images/gajah.jpg"},
-  {name:"harimau", clue:"Bergaris oranye hitam, buas.", img:"images/harimau.jpg"},
+  {name:"kucing", clue:"Hewan lucu berbulu lembut, suka mengeong.", img:"K.jpg"},
+  {name:"kuda", clue:"Hewan cepat, berkaki empat, sering ditunggangi manusia.", img:"images/kuda.jpg"},
+  {name:"penguin", clue:"Burung yang tidak bisa terbang tapi pandai berenang.", img:"images/penguin.jpg"},
+  {name:"gajah", clue:"Mamalia terbesar dengan belalai panjang.", img:"images/gajah.jpg"},
+  {name:"anjing", clue:"Hewan setia, suka menggonggong dan bermain.", img:"images/anjing.jpg"},
+  {name:"harimau", clue:"Bergaris oranye hitam, predator hutan.", img:"images/harimau.jpg"},
+  {name:"jerapah", clue:"Lehernya sangat panjang, pemakan daun di pohon tinggi.", img:"images/jerapah.jpg"},
+  {name:"panda", clue:"Beruang hitam-putih, suka makan bambu.", img:"images/panda.jpg"},
+  {name:"kelinci", clue:"Hewan kecil berbulu, suka melompat dan makan wortel.", img:"images/kelinci.jpg"},
+  {name:"tikus", clue:"Hewan kecil, suka makan keju dan berlari cepat.", img:"images/tikus.jpg"},
+  {name:"unta", clue:"Hewan gurun dengan punuk untuk menyimpan lemak.", img:"images/unta.jpg"},
+  {name:"buaya", clue:"Reptil besar pemakan daging, tinggal di sungai.", img:"images/buaya.jpg"},
+  {name:"singa", clue:"Raja hutan dengan surai besar pada jantan.", img:"images/singa.jpg"},
+  {name:"zebra", clue:"Mamalia bergaris hitam-putih, mirip kuda.", img:"images/zebra.jpg"},
+  {name:"monyet", clue:"Hewan gesit, suka memanjat pohon, pintar.", img:"images/monyet.jpg"},
+  {name:"lumba-lumba", clue:"Mamalia laut cerdas, suka meloncat di air.", img:"images/lumba-lumba.jpg"},
+  {name:"kangguru", clue:"Hewan Australia, melompat tinggi dengan kantong di perut.", img:"images/kangguru.jpg"},
+  {name:"kudanil", clue:"Hewan besar, hidup di air dan darat, gigi taring besar.", img:"images/kudanil.jpg"},
+  {name:"merak", clue:"Burung indah berekor panjang dan berwarna cerah.", img:"images/merak.jpg"},
+  {name:"rusa", clue:"Hewan bertanduk, lari cepat, hidup di hutan.", img:"images/rusa.jpg"}
 ];
 
 let index=0, coins=10, diamonds=3, lives=3;
