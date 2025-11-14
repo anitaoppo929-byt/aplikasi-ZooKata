@@ -8,7 +8,12 @@ body {
     align-items: center;
     color: #2f3e46;
     overflow: hidden;
-    background: #ffffff; /* background kosong */
+    
+    /* Background gambar */
+    background-image: url('images.jpg'); /* ganti dengan nama file gambarmu */
+    background-size: cover;       /* gambar menutupi seluruh layar */
+    background-position: center;  /* posisi tengah */
+    background-repeat: no-repeat;
 }
 
 /* --- Menu --- */
