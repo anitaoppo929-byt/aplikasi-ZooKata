@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tebak Hewan</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- MENU -->
+<div id="menuScreen" class="screen">
+  <div class="menu-box">
+    <h1>🐾 Tebak Hewan 🐾</h1>
+    <button onclick="startGame()">Mulai Permainan</button>
+    <button onclick="toggleGuide()">Petunjuk</button>
+    <div id="guideBox">
+      🎮 <b>Cara Bermain</b><br>
+      • Tebak nama hewan dari gambar blur<br>
+      • Gunakan petunjuk jika bingung (bayar koin/diamond)<br>
+      • Jika jawaban benar → blur hilang, koin bertambah<br>
+      • Selesaikan semua level untuk menang 🎉
+    </div>
+  </div>
+</div>
+
+<!-- GAME -->
+<div id="gameScreen" class="screen">
+  <div class="game-box">
+    <h2>Level <span id="levelNumber">1</span></h2>
+    <img id="animalImg" class="animal-img" src="">
+    <input id="answerInput" type="text" placeholder="Tulis jawabanmu...">
+    <div>
+      <button onclick="checkAnswer()">Tebak!</button>
+      <button onclick="buyClueCoin()">💰</button>
+      <button onclick="buyClueDiamond()">💎</button>
+    </div>
+    <div id="resultText"></div>
+    <div id="clueBox"></div>
+    <div class="stats">💰 Koin: <span id="coins">10</span> | 💎 Diamond: <span id="diamonds">3</span> | ❤️ Nyawa: <span id="lives">3</span></div>
+  </div>
+</div>
+
+<!-- GAME OVER -->
+<div id="endScreen" class="screen">
+  <div class="end-box">
+    <h1>💀 Game Over 💀</h1>
+    <p>Kamu kehabisan nyawa 😢</p>
+    <button onclick="restart()">Main Lagi</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
