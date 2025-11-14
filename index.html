@@ -1,55 +1,58 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tebak Hewan</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tebak Hewan - Kebun Binatang</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<!-- MENU -->
-<div id="menuScreen" class="screen">
-  <div class="menu-box">
-    <h1>🐾 Tebak Hewan 🐾</h1>
-    <button onclick="startGame()">Mulai Permainan</button>
-    <button onclick="toggleGuide()">Petunjuk</button>
-    <div id="guideBox">
-      🎮 <b>Cara Bermain</b><br>
-      • Tebak nama hewan dari gambar blur<br>
-      • Gunakan petunjuk jika bingung (bayar koin/diamond)<br>
-      • Jika jawaban benar → blur hilang, koin bertambah<br>
-      • Selesaikan semua level untuk menang 🎉
+    <!-- Background Galeri -->
+    <div id="backgroundAnimals"></div>
+
+    <!-- MENU UTAMA -->
+    <div id="menuScreen">
+        <h1>Tebak Hewan</h1>
+        <button onclick="startGame()">Mulai Game</button>
+        <button onclick="toggleGuide()">Panduan</button>
+
+        <div id="guideBox" style="display:none;">
+            <p>Masukkan jawaban sesuai gambar. Gunakan koin dan diamond untuk meminta clue.</p>
+        </div>
     </div>
-  </div>
-</div>
 
-<!-- GAME -->
-<div id="gameScreen" class="screen">
-  <div class="game-box">
-    <h2>Level <span id="levelNumber">1</span></h2>
-    <img id="animalImg" class="animal-img" src="">
-    <input id="answerInput" type="text" placeholder="Tulis jawabanmu...">
-    <div>
-      <button onclick="checkAnswer()">Tebak!</button>
-      <button onclick="buyClueCoin()">💰</button>
-      <button onclick="buyClueDiamond()">💎</button>
+    <!-- GAME -->
+    <div id="gameScreen" style="display:none;">
+        <h2>Level: <span id="levelNumber">1</span></h2>
+
+        <img id="animalImg" class="animal" src="" alt="hewan">
+
+        <div class="stats">
+            ❤️ Nyawa: <span id="lives">3</span> |
+            🪙 Koin: <span id="coins">10</span> |
+            💎 Diamond: <span id="diamonds">3</span>
+        </div>
+
+        <input type="text" id="answerInput" placeholder="Jawaban...">
+        <button onclick="checkAnswer()">Cek</button>
+
+        <div class="shop">
+            <button onclick="buyClueCoin()">💡 Clue (2 koin)</button>
+            <button onclick="buyClueDiamond()">🔍 Reveal (1 diamond)</button>
+        </div>
+
+        <p id="clueBox" class="clue"></p>
+        <p id="resultText"></p>
     </div>
-    <div id="resultText"></div>
-    <div id="clueBox"></div>
-    <div class="stats">💰 Koin: <span id="coins">10</span> | 💎 Diamond: <span id="diamonds">3</span> | ❤️ Nyawa: <span id="lives">3</span></div>
-  </div>
-</div>
 
-<!-- GAME OVER -->
-<div id="endScreen" class="screen">
-  <div class="end-box">
-    <h1>💀 Game Over 💀</h1>
-    <p>Kamu kehabisan nyawa 😢</p>
-    <button onclick="restart()">Main Lagi</button>
-  </div>
-</div>
+    <!-- END -->
+    <div id="endScreen" style="display:none;">
+        <h1></h1>
+        <button onclick="restart()">Main Lagi</button>
+    </div>
 
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
