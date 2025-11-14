@@ -1,0 +1,49 @@
+body {
+    margin:0; 
+    font-family:sans-serif; 
+    background:#a0e1e0; 
+    text-align:center; 
+}
+.screen{ display:none; padding:20px; }
+.menu-box, .game-box, .end-box{ 
+    display:inline-block; 
+    background:#fff3b0; 
+    padding:30px; 
+    border-radius:20px; 
+    box-shadow:0 8px 20px rgba(0,0,0,0.3); 
+    position:relative; 
+}
+button{
+    padding:12px 20px; 
+    margin:5px; 
+    font-size:18px; 
+    border:none; 
+    border-radius:15px; 
+    cursor:pointer; 
+    transition:0.3s; 
+}
+button:hover{ transform:scale(1.1); }
+.animal-img{ 
+    width:250px; 
+    height:250px; 
+    object-fit:cover; 
+    border-radius:15px; 
+    filter:blur(15px); 
+    transition:filter 0.5s ease, transform 0.5s ease; 
+    margin:10px;
+}
+.animal-img.revealed{ 
+    filter:blur(0); 
+    transform:scale(1.05);
+}
+#clueBox{ 
+    display:none; 
+    margin-top:10px; 
+    background:#ffffffcc; 
+    padding:10px; 
+    border-radius:12px; 
+}
+.stats{ margin-top:10px; font-weight:bold; }
+#resultText.correct{ color:green; font-size:22px; } 
+#resultText.wrong{ color:red; }
+#guideBox{ display:none; text-align:left; margin-top:10px; }
