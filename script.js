@@ -1,4 +1,3 @@
-// DATA HEWAN
 const animals = [
   {name:"kucing", clue:"Hewan lucu berbulu lembut, suka mengeong.", img:"K.webp"},
   {name:"kuda", clue:"Hewan cepat, berkaki empat, sering ditunggangi manusia.", img:"D.webp"},
@@ -36,11 +35,12 @@ function startGame() {
 function loadLevel() {
     const animal = animals[level];
     const img = document.getElementById("animalImg");
-    img.src = animal.image;
-    img.classList.remove("revealed"); // pastikan blur
+    img.src = animal.img;         // panggil gambar dari dataset
+    img.classList.remove("revealed");
     document.getElementById("levelNumber").innerText = level + 1;
     document.getElementById("resultText").innerText = "";
     document.getElementById("clueBox").innerText = "";
+    document.getElementById("answerInput").value = "";
 }
 
 function checkAnswer() {
@@ -76,7 +76,7 @@ function buyClueDiamond() {
     if(diamonds >= 1){
         diamonds -= 1;
         document.getElementById("diamonds").innerText = diamonds;
-        document.getElementById("animalImg").classList.add("revealed"); // hilangkan blur
+        document.getElementById("animalImg").classList.add("revealed");
     } else alert("Diamond tidak cukup!");
 }
 
