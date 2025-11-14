@@ -1,72 +1,56 @@
-/* Layout umum */
+/* --- Body & Background --- */
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: "Poppins", sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #2f3e46;
+    overflow: hidden;
+    background: #ffffff; /* background kosong */
+}
+
+/* --- Menu --- */
+#menuScreen, #gameScreen, #endScreen {
     text-align: center;
 }
 
-/* Background galeri tanpa animasi */
-#backgroundAnimals {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-auto-rows: 140px;
-    gap: 6px;
-    padding: 10px;
-
-    opacity: 0.25;
-    background: #ccc;
-}
-
-#backgroundAnimals img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 10px;
-    filter: grayscale(40%);
-}
-
-/* Gambar hewan */
+/* --- Gambar Hewan --- */
 .animal {
-    width: 250px;
-    height: 250px;
-    object-fit: contain;
-    border-radius: 12px;
-    background: white;
-    padding: 10px;
+    width: 300px; /* ukuran gambar */
+    height: 300px;
+    object-fit: cover;
+    filter: blur(8px); /* semua gambar blur */
+    transition: filter 0.3s;
 }
 
+/* Jika ingin reveal (misal pakai diamond) */
 .animal.revealed {
-    filter: brightness(1.1);
+    filter: blur(0px);
 }
 
-/* Info & tombol */
+/* Stats & Input */
 .stats {
+    margin: 10px 0;
     font-size: 18px;
-    margin: 10px;
+}
+
+input[type="text"] {
+    padding: 8px;
+    font-size: 16px;
 }
 
 button {
-    margin: 6px;
-    padding: 10px 20px;
-    font-size: 18px;
+    padding: 8px 12px;
+    margin: 5px;
+    font-size: 16px;
     cursor: pointer;
 }
 
+/* Clue box */
 .clue {
-    background: #fff;
-    padding: 10px;
-    border-radius: 10px;
-    width: 70%;
-    margin: 10px auto;
-    display: none;
+    font-weight: bold;
+    margin-top: 10px;
+    color: #333;
 }
-
-.correct { color: green; font-size: 22px; }
-.wrong { color: red; font-size: 22px; }
