@@ -1,73 +1,65 @@
-/* --- Background --- */
+/* === BACKGROUND UTAMA: images.jpg === */
 body {
     margin: 0;
     font-family: "Poppins", sans-serif;
-    height: 100vh;
-    color: #ffffff;
-    overflow: hidden;
-
-    /* Background image */
-    background-image: url('images.jpg'); /* ganti sesuai gambar kamu */
+    text-align: center;
+    background: url("images.jpg");
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
+    background-attachment: fixed;
+    animation: bgMove 15s linear infinite alternate;
+    padding-top: 20px;
+}
+
+@keyframes bgMove {
+    from { background-position: center; }
+    to { background-position: center bottom; }
+}
+
+/* GAMBAR LEBIH BESAR */
+.imgBox {
     position: relative;
+    display: inline-block;
+    margin-top: 20px;
 }
 
-/* Overlay tipis agar gambar hewan lebih terlihat */
-body::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: rgba(0,0,0,0.25);
-    z-index: -1;
-}
-
-/* --- Menu & Game --- */
-#menuScreen, #gameScreen, #endScreen {
-    position: relative;
-    z-index: 1;
-    text-align: center;
-}
-
-/* --- Gambar Hewan --- */
 .animal {
-    width: 100vw;         /* fullscreen lebar */
-    height: 100vh;        /* fullscreen tinggi */
-    object-fit: contain;   /* proporsional */
-    filter: blur(4px);    /* blur tipis */
-    transition: filter 0.3s;
-    display: block;
-    margin: 0 auto;
+    width: 320px;      /* ukuran diperbesar */
+    height: auto;
+    border-radius: 20px;
+    filter: blur(10px);
+    transition: 0.4s;
 }
 
-.animal.revealed {
-    filter: blur(0px);
+/* EMOJI KEJUTAN SAAT BERHASIL MENJAWAB */
+#emojiEffect {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    font-size: 55px;
+    opacity: 0;
+    transition: 0.4s ease-out;
 }
 
-/* --- Stats & Input --- */
-.stats {
-    margin: 10px 0;
-    font-size: 18px;
-}
-
-input[type="text"] {
-    padding: 8px;
-    font-size: 16px;
-}
-
-button {
-    padding: 8px 12px;
-    margin: 5px;
-    font-size: 16px;
+/* TOMBOL */
+.shop button,
+#menuScreen button {
+    margin: 10px;
+    padding: 12px 18px;
+    border-radius: 10px;
+    background: #6b9080;
+    color: white;
+    border: none;
     cursor: pointer;
-    border-radius: 5px;
+    font-size: 16px;
 }
 
-/* Clue box */
-.clue {
-    font-weight: bold;
+/* INPUT JAWABAN */
+input {
+    padding: 10px;
+    width: 230px;
     margin-top: 10px;
-    color: #fff;
+    border-radius: 10px;
+    border: 2px solid #6b9080;
 }
