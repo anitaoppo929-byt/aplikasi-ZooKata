@@ -1,65 +1,135 @@
-/* === BACKGROUND UTAMA: images.jpg === */
 body {
     margin: 0;
-    font-family: "Poppins", sans-serif;
+    font-family: Arial, sans-serif;
+    background: #cce3de;
     text-align: center;
-    background: url("images.jpg");
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    animation: bgMove 15s linear infinite alternate;
-    padding-top: 20px;
 }
 
-@keyframes bgMove {
-    from { background-position: center; }
-    to { background-position: center bottom; }
+/* ===== TITLE ===== */
+.title {
+    font-size: 40px;
+    color: #1b263b;
+    margin-top: 40px;
 }
 
-/* GAMBAR LEBIH BESAR */
-.imgBox {
-    position: relative;
-    display: inline-block;
+/* ===== MENU BUTTON ===== */
+.menuBtn {
+    display: block;
+    width: 220px;
+    margin: 10px auto;
+    padding: 12px;
+    font-size: 20px;
+    font-weight: bold;
+    border: 3px solid #1b263b;
+    background: #ffffff;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/* ===== GUIDE BOX ===== */
+.guideBox {
+    width: 80%;
+    margin: 10px auto;
+    padding: 10px;
+    background: #ffffffcf;
+    border: 3px solid #1b263b;
+    border-radius: 10px;
+    display:none;
+}
+
+/* ===== GAME SCREEN ===== */
+.hidden { display: none; }
+
+.levelTitle {
+    font-size: 28px;
     margin-top: 20px;
 }
 
+/* ===== GAMBAR ===== */
+.imgBox {
+    width: 280px;
+    height: 280px;
+    margin: 20px auto;
+    border: 5px solid #1b263b;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
 .animal {
-    width: 320px;      /* ukuran diperbesar */
-    height: auto;
-    border-radius: 20px;
-    filter: blur(10px);
-    transition: 0.4s;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(8px);
 }
 
-/* EMOJI KEJUTAN SAAT BERHASIL MENJAWAB */
-#emojiEffect {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0);
-    font-size: 55px;
-    opacity: 0;
-    transition: 0.4s ease-out;
+/* ===== STATS BAR ===== */
+.stats {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
 }
 
-/* TOMBOL */
-.shop button,
-#menuScreen button {
-    margin: 10px;
-    padding: 12px 18px;
+.statBox {
+    font-size: 22px;
+    font-weight: bold;
+    padding: 8px 12px;
+    background: #ffffff;
+    border: 3px solid #1b263b;
     border-radius: 10px;
-    background: #6b9080;
-    color: white;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
 }
 
-/* INPUT JAWABAN */
-input {
+/* ===== INPUT ===== */
+.inputBox {
+    margin-top: 15px;
     padding: 10px;
-    width: 230px;
-    margin-top: 10px;
+    width: 250px;
+    font-size: 20px;
+    border: 3px solid #1b263b;
     border-radius: 10px;
-    border: 2px solid #6b9080;
+}
+
+/* ===== TOMBOL CEK ===== */
+.cekBtn {
+    margin-top: 10px;
+    padding: 12px 25px;
+    font-size: 24px;
+    font-weight: bold;
+    border: 4px solid #1b263b;
+    border-radius: 10px;
+    background: #f4d160;
+    cursor: pointer;
+}
+
+/* ===== SHOP ===== */
+.shop {
+    margin-top: 20px;
+}
+
+.shopBtn {
+    margin: 5px;
+    padding: 10px 15px;
+    font-size: 18px;
+    border: 3px solid #1b263b;
+    border-radius: 10px;
+    background: #ffffff;
+    cursor: pointer;
+}
+
+/* ===== CLUE & RESULT ===== */
+.clueText, .resultText {
+    margin-top: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    background: #ffffff;
+    display: inline-block;
+    padding: 8px 12px;
+    border: 3px solid #1b263b;
+    border-radius: 10px;
+}
+
+/* ===== END SCREEN ===== */
+.endScreen h1 {
+    font-size: 40px;
+    color: #1b263b;
 }
