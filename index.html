@@ -12,35 +12,35 @@
     <div id="menuScreen">
         <h1 class="title">Tebak Hewan</h1>
 
-        <button class="btnMain" onclick="startGame()">Mulai Game</button>
-        <button class="btnMain" onclick="toggleGuide()">Panduan</button>
+        <button class="menuBtn" onclick="startGame()">Mulai Game</button>
+        <button class="menuBtn" onclick="toggleGuide()">Panduan</button>
 
-        <div id="guideBox" class="guideBox" style="display:none;">
-            <p>Masukkan jawaban sesuai gambar. Gunakan koin atau diamond untuk mendapatkan clue.</p>
+        <div id="guideBox" class="guideBox">
+            <p>Masukkan jawaban sesuai gambar. Gunakan koin dan diamond untuk meminta clue.</p>
         </div>
     </div>
 
-    <!-- GAME -->
-    <div id="gameScreen" style="display:none;">
+    <!-- GAME SCREEN -->
+    <div id="gameScreen" class="hidden">
 
-        <h2 class="levelText">Level: <span id="levelNumber">1</span></h2>
+        <h2 class="levelTitle">Level: <span id="levelNumber">1</span></h2>
 
         <div class="imgBox">
             <img id="animalImg" class="animal" src="" alt="hewan">
-            <div id="emojiEffect" class="emojiEffect">🎉🔥😍</div>
+            <div id="emojiEffect">🎉😆🔥</div>
         </div>
 
-        <!-- STATUS PLAYER -->
-        <div class="statsBox">
-            ❤️ Nyawa: <span id="lives">3</span> |
-            🪙 Koin: <span id="coins">10</span> |
-            💎 Diamond: <span id="diamonds">3</span>
+        <!-- STATUS BAR -->
+        <div class="stats">
+            <span class="statBox">❤️ Nyawa: <span id="lives">3</span></span>
+            <span class="statBox">🪙 Koin: <span id="coins">10</span></span>
+            <span class="statBox">💎 Diamond: <span id="diamonds">3</span></span>
         </div>
 
-        <!-- INPUT JAWABAN -->
-        <input type="text" id="answerInput" class="answerInput" placeholder="Jawaban...">
+        <!-- ANSWER -->
+        <input type="text" id="answerInput" placeholder="Jawaban..." class="inputBox">
 
-        <button class="cekButton" onclick="checkAnswer()">CEK</button>
+        <button class="cekBtn" onclick="checkAnswer()">CEK</button>
 
         <!-- SHOP -->
         <div class="shop">
@@ -48,15 +48,15 @@
             <button class="shopBtn" onclick="buyClueDiamond()">🔍 Reveal (1 diamond)</button>
         </div>
 
-        <!-- CLUE & RESULT -->
-        <p id="clueBox" class="clueBox"></p>
+        <p id="clueBox" class="clueText"></p>
         <p id="resultText" class="resultText"></p>
+
     </div>
 
     <!-- END SCREEN -->
-    <div id="endScreen" style="display:none;">
-        <h1 id="endTitle"></h1>
-        <button class="btnMain" onclick="restart()">Main Lagi</button>
+    <div id="endScreen" class="hidden endScreen">
+        <h1 id="endMessage"></h1>
+        <button class="menuBtn" onclick="restart()">Main Lagi</button>
     </div>
 
     <script src="script.js"></script>
