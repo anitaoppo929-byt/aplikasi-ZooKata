@@ -1,9 +1,17 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: #cce3de;
+
+    /* ==== BACKGROUND GAMBAR KAMU ==== */
+    background-image: url('images.jpg'); /* ganti dengan gambar kamu */
+    background-size: cover;          /* memenuhi layar */
+    background-repeat: no-repeat;    /* tidak diulang */
+    background-position: center;     /* posisi tengah */
+    background-attachment: fixed;    /* biar tidak ikut scroll (keren) */
+
     text-align: center;
 }
+
 
 /* ===== TITLE ===== */
 .title {
